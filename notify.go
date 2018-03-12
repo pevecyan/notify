@@ -22,10 +22,10 @@ func (e Notify) ServeDNS(ctx context.Context, w dns.ResponseWriter, r *dns.Msg) 
 	// answer comes back, it will print "example".
 
 	// Wrap.
-	pw := NewResponsePrinter(w)
+	fmt.Println("notify")
 
 	// Call next plugin (if any).
-	return plugin.NextOrFailure(e.Name(), e.Next, ctx, pw, r)
+	return plugin.NextOrFailure(e.Name(), e.Next, ctx, w, r)
 }
 
 // Name implements the Handler interface.
