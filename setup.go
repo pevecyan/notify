@@ -7,14 +7,13 @@ import (
 	"github.com/mholt/caddy"
 )
 
-//init registers this plugin 
+//init registers this plugin
 func init() {
 	caddy.RegisterPlugin("notify", caddy.Plugin{
 		ServerType: "dns",
-		Action: setup
+		Action:     setup,
 	})
 }
-
 
 func setup(c *caddy.Controller) error {
 	c.Next()
