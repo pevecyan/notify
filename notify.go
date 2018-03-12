@@ -27,7 +27,7 @@ func (e Notify) ServeDNS(ctx context.Context, w dns.ResponseWriter, r *dns.Msg) 
 
 	state := request.Request{W: w, Req: r}
 
-	fmt.Println("notify", state.IP())
+	fmt.Println("notify", state.IP(), state.Name())
 
 	// Call next plugin (if any).
 	return plugin.NextOrFailure(e.Name(), e.Next, ctx, w, r)
