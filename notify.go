@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/coredns/coredns/plugin"
-
+	"github.com/coredns/coredns/request"
 	"github.com/miekg/dns"
 	"golang.org/x/net/context"
 )
@@ -24,7 +24,10 @@ func (e Notify) ServeDNS(ctx context.Context, w dns.ResponseWriter, r *dns.Msg) 
 	// answer comes back, it will print "example".
 
 	// Wrap.
-	fmt.Println("notify")
+
+	state := request.Request{W: w, R: r}
+
+	fmt.Println("notify", state.IP())
 
 	// Call next plugin (if any).
 	return plugin.NextOrFailure(e.Name(), e.Next, ctx, w, r)
