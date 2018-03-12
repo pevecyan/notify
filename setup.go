@@ -1,7 +1,7 @@
 package notify
 
 import (
-	"github.com/coredns/coredsn/dnsserver"
+	"github.com/coredns/coredns/dnsserver"
 	"github.com/coredns/coredns/plugin"
 
 	"github.com/mholt/caddy"
