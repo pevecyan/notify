@@ -25,7 +25,7 @@ func (e Notify) ServeDNS(ctx context.Context, w dns.ResponseWriter, r *dns.Msg) 
 
 	// Wrap.
 
-	state := request.Request{W: w, R: r}
+	state := request.Request{W: w, Req: r}
 
 	fmt.Println("notify", state.IP())
 
